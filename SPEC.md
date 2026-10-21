@@ -11,7 +11,7 @@
 | Python | ≥3.10 |
 | Layer | 9 (interface) |
 | Status | BUILT: lex, policy, pathrules, builtins, redact, session |
-| Tests | 67 tests in 3 files, all passing |
+| Tests | 72 tests in 4 files, all passing |
 | Declared deps | `vega-custody-sdk`, `vega-governance-jacket-sdk` |
 
 ## Table of contents
@@ -300,7 +300,7 @@ On failure: raises `BuiltinError` with descriptive message; caller converts to e
 A third party can verify conformance by:
 
 1. Installing the package and its two dependencies: `pip install -e .` (requires `vega-custody-sdk`, `vega-governance-jacket-sdk` on PYTHONPATH or installed).
-2. Running the test suite: `python -m unittest discover -s tests` (all 67 tests in 3 files must pass).
+2. Running the test suite: `python -m unittest discover -s tests` (all 72 tests in 4 files must pass).
 3. Running the mutation check: `python tests/mutation_check.py` (all 11 mutations must be killed — i.e., each removal of a fix causes at least one test to fail).
 
 **What passing means:** The reference implementation behaves as specified: lexing refuses expansion/syntax, classification matches the policy tables, paths are contained, signatures are single-use and line-specific, intent/result recording is fail-closed, containment (job object, clean env, timeout, survivor check) functions on Windows, output scrubbing replaces credential-shaped lines, halt/resume requires signed commitment.

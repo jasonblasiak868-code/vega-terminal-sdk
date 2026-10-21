@@ -183,8 +183,8 @@ class Session:
         if self.gate is None or not isinstance(signed, dict):
             raise TerminalRefused("resume needs a human-signed restore_after_hard_stop")
         self.gate.release("restore_after_hard_stop", {"session": self.id}, signed, route="human")
+        self._record("TERMINAL_RESUME", {})                           # recorded first: a failed write leaves the terminal halted
         self.halted = False
-        self._record("TERMINAL_RESUME", {})
 
     def close(self):
         shutil.rmtree(self._scratch, ignore_errors=True)
@@ -226,6 +226,8 @@ class Session:
         prev_code, i = 0, 0
         pipe_in = b""
         while i < len(stages):
+            if self.halted:                                   # a halt that arrives while a line is running stops the stages after it too, not only the program that was running
+                break
             s = stages[i]
             info = plan["stages"][i]
             sep_before = stages[i - 1]["sep_after"] if i else None
@@ -287,6 +289,8 @@ class Session:
         except (OSError, ValueError) as exc:
             return ("could not start: %s\n" % exc).encode(), 126, extra
         self._job = job
+        if self.halted:                                       # a halt that landed between 'the last stage ended' and 'this program started': stop it at once
+            job.kill()
         buf, over = [], [False]
 
         def reader():

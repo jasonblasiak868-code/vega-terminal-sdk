@@ -15,7 +15,7 @@
 | Python | ≥3.10 |
 | Layer | 9 (interface) |
 | Status | BUILT: lex, policy, pathrules, builtins, redact, session |
-| Tests | 67 tests in 3 files, all passing |
+| Tests | 72 tests in 4 files, all passing |
 | Platform | Windows full; Linux/macOS degraded |
 | Declared deps | `vega-custody-sdk`, `vega-governance-jacket-sdk` |
 
@@ -43,7 +43,7 @@
 | Python | ≥3.10 |
 | Declared dependencies | `vega-custody-sdk`, `vega-governance-jacket-sdk` |
 | Family SDKs imported (down-layer only) | `vega_custody` (dag, ledger, safepaths, proc), `vega_jacket` (humanauth, commit, gate) |
-| Tests | 67 tests in 3 files, all passing |
+| Tests | 72 tests in 4 files, all passing |
 | Status | BUILT: lex, policy, pathrules, builtins, redact, session. DESIGNED ONLY: Electron terminal tab wiring; redirect support limited to `>` and `>>` on last stage of a pipeline. |
 
 ---

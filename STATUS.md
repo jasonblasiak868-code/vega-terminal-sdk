@@ -9,7 +9,7 @@
 - redact
 - session
 
-Tests: 67 tests in 3 files, all passing.
+Tests: 72 tests in 4 files, all passing.
 
 ## DESIGNED ONLY (not built)
 
