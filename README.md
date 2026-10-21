@@ -2,6 +2,13 @@
 
 ![vega-terminal-sdk](assets/tile.svg)
 
+<!-- vega-install-order -->
+> **Build order: 3/3. This kit needs 2 other Vega kits installed first.** Install them in this order, then this one:
+> 1/3 `vega-custody-sdk`  
+> 2/3 `vega-governance-jacket-sdk`  
+> 3/3 `vega-terminal-sdk` (this kit)
+> Install each with `pip install --no-deps git+https://github.com/jasonblasiak868-code/<name>` in the order shown, plus `pip install cryptography`. Full steps: [INTEGRATION_GUIDE](https://github.com/jasonblasiak868-code/vega-umbrella-sdk/blob/main/INTEGRATION_GUIDE.md).
+
 **Governed terminal for people and agents.** Every command line is split without a shell, classified by risk, gated by who typed it, run inside a Windows job object with a clean environment, its output scrubbed for credential-shaped lines, and a hash-only transcript recorded on an append-only custody chain. The one concern this kit owns is **gated command execution** — the boundary where intent becomes action. That boundary matters because a model that can only talk cannot move money, publish packages, or delete files; the moment it can, a single misunderstood or hijacked line can do irreversible damage. This kit makes that boundary explicit, auditable, and fail-closed.
 
 > **Licensing.** Source-available, not open source. Free for personal use; free for registered small businesses (under US$1M revenue and valuation); everyone else needs a commercial license (see LICENSE; for a commercial license write to jasonblasiak.ai.mail@gmail.com). Patent pending (U.S. provisional application 64/178,949 and others). Draft licence text, not yet reviewed by an attorney.
